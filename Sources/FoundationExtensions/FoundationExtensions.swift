@@ -182,4 +182,27 @@ public extension Date {
         formatter.timeZone = TimeZone(identifier: "Asia/Taipei") ?? TimeZone.current
         return formatter.string(from: self)
     }
+    
+    
+    /// iso8601 格式，時區台灣台北
+    /// - Returns: 輸出範例 2025-03-01T12:00:00+0800
+    func iso8601FormatterAtTaipei() -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        formatter.timeZone = TimeZone(identifier: "Asia/Taipei")
+        return formatter.string(from: self)
+    }
+    
+    
+    /// iso8601 格式
+    /// - Parameter identifier: 時區識別碼
+    /// - Returns: 輸出範例 2025-03-01T12:00:00+0000
+    func iso8601Formatter(identifier: String) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        formatter.timeZone = TimeZone(identifier: identifier)
+        return formatter.string(from: self)
+    }
 }
