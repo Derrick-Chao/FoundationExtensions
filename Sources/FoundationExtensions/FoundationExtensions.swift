@@ -29,6 +29,10 @@ public extension NSObject {
     class func getClassName() -> String {
         return String(describing: self)
     }
+    
+    func getClassNameOfInstance() -> String {
+        return String(describing: type(of: self))
+    }
 }
 
 // MARK: - String
@@ -183,6 +187,17 @@ public extension Date {
         return formatter.string(from: self)
     }
     
+    /*
+     時間格式 ISO 8601 轉換
+     
+     "yyyy"：4位數的年份，例如2022。
+     "MM"：2位數的月份，例如01。
+     "dd"：2位數的日期，例如01。
+     "HH"：24小時制的小時，例如00或23。
+     "hh"：12小時制的小時，例如12或11。
+     "mm"：2位數的分鐘，例如01或59。
+     "ZZZZZ"：ISO 8601格式的時區偏移量，例如+08:00。
+     */
     
     /// iso8601 格式，時區台灣台北
     /// - Returns: 輸出範例 2025-03-01T12:00:00+0800
